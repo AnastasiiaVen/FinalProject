@@ -72,57 +72,110 @@
 
 **Выгрузка к заданию 5**
 
-1188  git clone https://github.com/AnastasiiaVen/FinalProject.git
+ 1188  git clone https://github.com/AnastasiiaVen/FinalProject.git
+ 
  1189  git checkout -b Linux
+
  1190  cd FinalProject/
+
  1191  git checkout -b Linux
+ 
  1192  cat > Домашние_животные
+
  1193  git add Домашние_животные
+
  1194  git commit -m "Создан файл Домашние животные"
+
  1195  cat > Вьючные_животные
+
  1196  git add Вьючные_животные
+
  1197  git commit -m "Создан файл Вьючные животные"
+
  1198  git status
+
  1199  cat Домашние_животные Вьючные_животные > Животные
+
  1200  git add Животные
+
  1201  git commit -m "Два созданных ранее файла объединены в один"
+
  1202  cat Животные
+
  1203  mv Животные Друзья_человека
+
  1204  git add Друзья_человека
+
  1205  git commit -m "Файл Животные переименован в Друзья человека"
+
  1206  ls
+
  1207  mkdir Итоговый_проект
+
  1208  git status
+
  1209  git add Итоговый_проект/
+
  1210  git commit -m "Создана директория"
+
  1211  mv ./Друзья_человека Итоговый_проект/
+
  1212  git add Друзья_человека
+
  1213  git commit -m "Файл перемещён в новую директорию"
+
  1214  git add ./Итоговый_проект/Друзья_человека
+
  1215  git commit -m "Файл перемещён в новую директорию"
+
  1216  git status
+
  1217  cd Итоговый_проект/
+
  1218  ls
+
  1219  cd -
+
  1220  sudo apt update -y
+
  1221  wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
+
  1223  sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
+
  1224  sudo apt-get update
+
  1225  sudo apt-cache policy mysql-server
+
  1226  sudo apt install mysql-server
+
  1227  sudo apt install mysql-client
+
  1228  git status
+
  1229  git add mysql-apt-config_0.8.12-1_all.deb
+
  1230  git commit -m "Подключен доп репозиторий MySQL и установлены пакеты"
+
  1231  git status
+
  1232  sudo wget https://download.virtualbox.org/virtualbox/6.1.38/virtualbox-6.1_6.1.38-153438~Ubuntu~jammy_amd64.deb
+
  1233  sudo dpkg -i virtualbox-6.1_6.1.38-153438~Ubuntu~jammy_amd64.deb
+
  1234  git status
+
  1235  git add virtualbox-6.1_6.1.38-153438~Ubuntu~jammy_amd64.deb
+
  1236  git commit -m "Установлен deb-пакет"
+
  1237  git status
+
  1238  dpkg -l | grep virtualbox
+
  1239  sudo dpkg -r virtualbox-6.1
+
  1240  git status
+
  1241  history
+
 
