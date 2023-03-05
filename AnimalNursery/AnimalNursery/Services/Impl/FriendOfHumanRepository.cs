@@ -2,6 +2,7 @@
 using AnimalNursery.Models.Animals;
 using AnimalNursery.Models.Animals.ImpBeastOfBurden;
 using AnimalNursery.Models.Animals.ImpPets;
+using AnimalNursery.Models.Commands;
 using System.Data.SQLite;
 
 namespace AnimalNursery.Services.Impl
@@ -18,6 +19,7 @@ namespace AnimalNursery.Services.Impl
             command.Parameters.AddWithValue("@Name", item.Name);
             command.Parameters.AddWithValue("@Birthday", item.Birthday.Ticks);
             command.Parameters.AddWithValue("@Type", item.Type);
+            //command.Parameters.AddWithValue("@Commands", item.Commands.ConvertToString);
             command.Parameters.AddWithValue("@Commands", string.Join(", ", item.Commands));
             command.Prepare();
             int res = command.ExecuteNonQuery();
@@ -46,7 +48,8 @@ namespace AnimalNursery.Services.Impl
                 friendsOfHuman.Name = reader.GetString(1);
                 friendsOfHuman.Birthday = new DateTime(reader.GetInt64(2));
                 friendsOfHuman.Type = reader.GetString(3);
-                friendsOfHuman.Commands = new Models.Commands.CommandsList(reader.GetString(4));
+                //friendsOfHuman.Commands = new CommandsList(reader.GetString(4));
+                friendsOfHuman.Commands = reader.GetString(4).Split(", ").ToList();
 
                 list.Add(friendsOfHuman);
             }
@@ -74,7 +77,8 @@ namespace AnimalNursery.Services.Impl
                 friendOfHuman.Name = reader.GetString(1);
                 friendOfHuman.Birthday = new DateTime(reader.GetInt64(2));
                 friendOfHuman.Type = reader.GetString(3);
-                friendOfHuman.Commands = new Models.Commands.CommandsList(reader.GetString(4));
+                //friendOfHuman.Commands = new CommandsList(reader.GetString(4));
+                friendOfHuman.Commands = reader.GetString(4).Split(", ").ToList();
 
                 connection.Close();
                 return friendOfHuman;

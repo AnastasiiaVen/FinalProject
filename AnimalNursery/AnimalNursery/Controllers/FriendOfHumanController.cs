@@ -1,5 +1,6 @@
 ﻿using AnimalNursery.Models;
 using AnimalNursery.Models.Animals;
+using AnimalNursery.Models.Commands;
 using AnimalNursery.Models.Requests;
 using AnimalNursery.Services;
 using Microsoft.AspNetCore.Http;
@@ -25,7 +26,8 @@ namespace AnimalNursery.Controllers
             friendOfHuman.Name = createFriendsOfHumanRequest.Name;
             friendOfHuman.Birthday = createFriendsOfHumanRequest.Birthday;
             friendOfHuman.Type = createFriendsOfHumanRequest.Type;
-            friendOfHuman.Commands = new Models.Commands.CommandsList(createFriendsOfHumanRequest.Commands);
+            //friendOfHuman.Commands = new CommandsList(createFriendsOfHumanRequest.Commands);
+            friendOfHuman.Commands = createFriendsOfHumanRequest.Commands.Split(", ").ToList();
             return Ok(_friendOfHumanRepository.Create(friendOfHuman));
         }
 
@@ -36,7 +38,8 @@ namespace AnimalNursery.Controllers
             friendOfHuman.Name = updateFriendsOfHumanRequest.Name;
             friendOfHuman.Birthday = updateFriendsOfHumanRequest.Birthday;
             friendOfHuman.Type = updateFriendsOfHumanRequest.Type;
-            friendOfHuman.Commands = new Models.Commands.CommandsList(updateFriendsOfHumanRequest.Commands);
+            //friendOfHuman.Commands = new CommandsList(updateFriendsOfHumanRequest.Commands);
+            friendOfHuman.Commands = updateFriendsOfHumanRequest.Commands.Split(", ").ToList();
             return Ok(_friendOfHumanRepository.Create(friendOfHuman));
         }
 

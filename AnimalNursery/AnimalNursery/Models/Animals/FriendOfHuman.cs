@@ -8,7 +8,7 @@ namespace AnimalNursery.Models.Animals
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
         public string Type { get; set; }
-        public CommandsList Commands { get; set; }
+        public List<string> Commands { get; set; }
 
     }
 }
